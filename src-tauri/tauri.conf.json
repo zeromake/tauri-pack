@@ -2,13 +2,12 @@
   "build": {
     "beforeDevCommand": "",
     "beforeBuildCommand": "",
-    "devPath": "../src",
-    "distDir": "../dist",
+    "devPath": "../dist",
     "withGlobalTauri": true
   },
   "package": {
     "productName": "ariang",
-    "version": "0.0.0"
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
@@ -16,27 +15,31 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "http":{
+        "scope":[
+          "http://**",
+          "https://**",
+          "ws://**",
+          "wss://**"
+        ]
       }
     },
     "bundle": {
+      "resources": [
+        "../dist"
+      ],
       "active": true,
       "category": "DeveloperTool",
       "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
+        "../bin/icons/32x32.png",
+        "../bin/icons/128x128.png",
+        "../bin/icons/128x128@2x.png",
+        "../bin/icons/icon.icns",
+        "../bin/icons/icon.ico"
       ],
       "identifier": "com.zeromake.ariang",
-      "targets": "all",
-      "windows": {
-        "digestAlgorithm": "sha256",
-        "webviewInstallMode": {
-          "silent": true,
-          "type": "embedBootstrapper"
-        }
-      }
+      "targets": "all"
     },
     "security": {
       "csp": null
