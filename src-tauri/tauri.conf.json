@@ -3,6 +3,7 @@
     "beforeDevCommand": "",
     "beforeBuildCommand": "",
     "devPath": "../dist",
+    "distDir": "../dist",
     "withGlobalTauri": true
   },
   "package": {
@@ -19,9 +20,7 @@
       "http":{
         "scope":[
           "http://**",
-          "https://**",
-          "ws://**",
-          "wss://**"
+          "https://**"
         ]
       }
     },
