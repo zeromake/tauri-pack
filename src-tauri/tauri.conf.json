@@ -7,7 +7,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "ariang",
+    "productName": "hexed",
     "version": "0.1.0"
   },
   "tauri": {
@@ -26,7 +26,6 @@
     },
     "bundle": {
       "resources": [
-        "../dist"
       ],
       "active": true,
       "category": "DeveloperTool",
@@ -37,7 +36,7 @@
         "../bin/icons/icon.icns",
         "../bin/icons/icon.ico"
       ],
-      "identifier": "com.zeromake.ariang",
+      "identifier": "com.zeromake.hexed",
       "targets": "all"
     },
     "security": {
@@ -50,9 +49,9 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "AriaNg",
-        "width": 800,
-        "height": 480
+        "title": "hexed.it",
+        "width": 1440,
+        "height": 960
       }
     ]
   }

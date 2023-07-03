@@ -5,6 +5,7 @@ use tauri::{utils::config::AppUrl, WindowUrl};
 use std::env;
 
 static USE_HTTP: bool = false;
+static USE_LOCAL: bool = false;
 
 fn main() {
     let mut context = tauri::generate_context!();
@@ -13,12 +14,11 @@ fn main() {
         let url = format!("http://localhost:{}/", port).parse().unwrap();
         let window_url = WindowUrl::External(url);
         context.config_mut().build.dist_dir = AppUrl::Url(window_url.clone());
-
         tauri::Builder::default()
             .plugin(tauri_plugin_localhost::Builder::new(port).build())
             .run(context)
             .expect("error while running tauri application");
-    } else {
+    } else if USE_LOCAL {
         // 从本地文件加载来跳过 https 无法请求 http 和 ws 的问题。
         let current_exe = env::current_exe().unwrap();
         let path = current_exe.parent().unwrap();
@@ -27,6 +27,10 @@ fn main() {
         // rewrite the config so the IPC is enabled on this URL
         context.config_mut().build.dist_dir = AppUrl::Url(window_url.clone());
         context.config_mut().build.dev_path = AppUrl::Url(window_url.clone());
+        tauri::Builder::default()
+            .run(context)
+            .expect("error while running tauri application");
+    } else {
         tauri::Builder::default()
             .run(context)
             .expect("error while running tauri application");
