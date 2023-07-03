@@ -9,12 +9,14 @@ static USE_LOCAL: bool = false;
 
 fn main() {
     let mut context = tauri::generate_context!();
+    let builder = tauri::Builder::default()
+        .plugin(tauri_plugin_window_state::Builder::default().build());
     if USE_HTTP {
         let port = portpicker::pick_unused_port().expect("failed to find unused port");
         let url = format!("http://localhost:{}/", port).parse().unwrap();
         let window_url = WindowUrl::External(url);
         context.config_mut().build.dist_dir = AppUrl::Url(window_url.clone());
-        tauri::Builder::default()
+        builder
             .plugin(tauri_plugin_localhost::Builder::new(port).build())
             .run(context)
             .expect("error while running tauri application");
@@ -27,11 +29,11 @@ fn main() {
         // rewrite the config so the IPC is enabled on this URL
         context.config_mut().build.dist_dir = AppUrl::Url(window_url.clone());
         context.config_mut().build.dev_path = AppUrl::Url(window_url.clone());
-        tauri::Builder::default()
+        builder
             .run(context)
             .expect("error while running tauri application");
     } else {
-        tauri::Builder::default()
+        builder
             .run(context)
             .expect("error while running tauri application");
     }

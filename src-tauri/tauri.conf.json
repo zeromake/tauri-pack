@@ -50,8 +50,8 @@
         "fullscreen": false,
         "resizable": true,
         "title": "hexed.it",
-        "width": 1440,
-        "height": 960
+        "width": 1280,
+        "height": 800
       }
     ]
   }
