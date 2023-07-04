@@ -37,7 +37,12 @@
         "../dist/ariang/icons/icon.ico"
       ],
       "identifier": "com.zeromake.ariang",
-      "targets": "all"
+      "targets": "all",
+      "windows": {
+        "webviewInstallMode": {
+          "type": "downloadBootstrapper"
+        }
+      }
     },
     "security": {
       "csp": null

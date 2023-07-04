@@ -37,7 +37,12 @@
         "../dist/hexed/icons/icon.ico"
       ],
       "identifier": "com.zeromake.hexed",
-      "targets": "all"
+      "targets": "all",
+      "windows": {
+        "webviewInstallMode": {
+          "type": "downloadBootstrapper"
+        }
+      }
     },
     "security": {
       "csp": null
