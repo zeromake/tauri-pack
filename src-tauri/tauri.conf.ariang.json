@@ -2,12 +2,12 @@
   "build": {
     "beforeDevCommand": "",
     "beforeBuildCommand": "",
-    "devPath": "../dist",
-    "distDir": "../dist",
+    "devPath": "../dist/ariang/dist",
+    "distDir": "../dist/ariang/dist",
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "hexed",
+    "productName": "ariang",
     "version": "0.1.0"
   },
   "tauri": {
@@ -30,13 +30,13 @@
       "active": true,
       "category": "DeveloperTool",
       "icon": [
-        "../bin/icons/32x32.png",
-        "../bin/icons/128x128.png",
-        "../bin/icons/128x128@2x.png",
-        "../bin/icons/icon.icns",
-        "../bin/icons/icon.ico"
+        "../dist/ariang/icons/32x32.png",
+        "../dist/ariang/icons/128x128.png",
+        "../dist/ariang/icons/128x128@2x.png",
+        "../dist/ariang/icons/icon.icns",
+        "../dist/ariang/icons/icon.ico"
       ],
-      "identifier": "com.zeromake.hexed",
+      "identifier": "com.zeromake.ariang",
       "targets": "all"
     },
     "security": {
@@ -49,9 +49,9 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "hexed.it",
-        "width": 1280,
-        "height": 800
+        "title": "AriaNg",
+        "width": 800,
+        "height": 600
       }
     ]
   }

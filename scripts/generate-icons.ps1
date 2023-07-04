@@ -3,7 +3,7 @@ param(
 	$out
 )
 
-$env:path+=";$($PSScriptRoot)\..\bin"
+$env:path+=";$($PSScriptRoot)/../bin"
 
 $resize = @(
 	("32x32", "32x32.png"),
@@ -22,18 +22,19 @@ $resize = @(
 	("310x310", "Square310x310Logo.png"),
 	("50x50", "StoreLogo.png")
 )
+mkdir -p "$($PSScriptRoot)/../$($out)"
 if ((Get-Command magick -errorAction SilentlyContinue)) {
 	foreach ($item in $resize) {
-		magick convert -resize "$($item[0])" "$($in)" "$($out)\$($item[1])"
-		echo "$($out)\$($item[1]) done"
+		magick convert -resize "$($item[0])" "$($PSScriptRoot)/../$($in)" "$($PSScriptRoot)/../$($out)/$($item[1])"
+		echo "$($out)/$($item[1]) done"
 	}
 } else {
 	echo "请安装 magick: https://imagemagick.org"
 }
 
 if ((Get-Command png2icons -errorAction SilentlyContinue)) {
-    png2icons "$($in)" "$($out)\icon" -icns -bc2
-	echo "$($out)\icon.icns done"
+    png2icons "$($PSScriptRoot)/../$($in)" "$($PSScriptRoot)/../$($out)/icon" -icns -bc2
+	echo "$($out)/icon.icns done"
 } else {
 	echo "请安装 png2icons: https://github.com/idesis-gmbh/png2icons/releases"
 }

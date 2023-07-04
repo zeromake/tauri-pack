@@ -14,11 +14,13 @@ tauri-build = { version = "1.4.0", features = [] }
 
 [dependencies]
 tauri = { version = "1.4.1", features = ["shell-open"] }
-serde = { version = "1.0.165", features = ["derive"] }
+serde = { version = "1.0.166", features = ["derive"] }
 tauri-plugin-localhost = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 tauri-plugin-window-state = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 portpicker = "0.1.1"
 serde_json = "1.0.99"
+toml = "0.7.5"
+url = "2.4.0"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem

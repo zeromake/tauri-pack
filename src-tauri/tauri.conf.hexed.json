@@ -1,0 +1,58 @@
+{
+  "build": {
+    "beforeDevCommand": "",
+    "beforeBuildCommand": "",
+    "devPath": "../dist/hexed/dist",
+    "distDir": "../dist/hexed/dist",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "hexed",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "http":{
+        "scope":[
+          "http://**",
+          "https://**"
+        ]
+      }
+    },
+    "bundle": {
+      "resources": [
+      ],
+      "active": true,
+      "category": "DeveloperTool",
+      "icon": [
+        "../dist/hexed/icons/32x32.png",
+        "../dist/hexed/icons/128x128.png",
+        "../dist/hexed/icons/128x128@2x.png",
+        "../dist/hexed/icons/icon.icns",
+        "../dist/hexed/icons/icon.ico"
+      ],
+      "identifier": "com.zeromake.hexed",
+      "targets": "all"
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "hexed.it",
+        "width": 1280,
+        "height": 800
+      }
+    ]
+  }
+}
